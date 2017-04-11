@@ -12,6 +12,10 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+
+    if @job.is_hidden
+      redirect_to root_path, warning: "职位已归档，无法查看！"
+    end
   end
 
   def edit
