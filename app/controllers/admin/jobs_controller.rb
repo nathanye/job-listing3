@@ -46,11 +46,6 @@ class Admin::JobsController < ApplicationController
 
   private
 
-  def require_is_admin
-    if current_user.email != "admin@1"
-      redirect_to root_path, alert: "你不是管理员，无权访问！"
-  end
-
   def job_params
     params.require(:job).permit(:title, :description)
   end
