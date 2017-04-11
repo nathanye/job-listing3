@@ -1,5 +1,5 @@
 <div class="pull-right">
-  <%= link_to("Add a job", new_job_path, :class => "btn btn-default") %>
+  <%= link_to("添加职位", new_job_path, :class => "btn btn-default") %>
 </div>
 
 <table class="table table-boldered">
@@ -7,6 +7,10 @@
   <tr>
     <td>
       <%= link_to(job.title, job_path(job)) %>
+    </td>
+    <td>
+      <%= link_to("修改", edit_job_path(job)) %> |
+      <%= link_to("删除", job_path(job), :method => :delete, :data => { :confirm => "你确定要删除吗?" }) %>
     </td>
     <td>
       <%= job.created_at %>
